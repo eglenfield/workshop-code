@@ -5,8 +5,28 @@
         <title>Project A</title>
     </head>
     <body>
-        <h1 class="main-wrapper">
-            Hello
-        </h1>
+        <header>
+            <h1>Registration</h1>
+        </header>
+        <form class="form" id="registration-form">
+            <div class="input-wrapper">
+                <div id="email-input">
+                    <label for="email">Email</label>
+                    <input class="input" type="text" id="email" name="email">
+                </div>
+                <div id="password-input">
+                    <label for="password">Password</label>
+                    <input class="input" type="password" id="password" name="password">
+                    <ul class="password-hints">
+                        <li>8+ characters</li>
+                        <li>lowercase letter</li>
+                        <li>uppercase letter</li>
+                        <li>number</li>
+                        <li>special character</li>
+                    </ul>
+                </div>
+            </div>
+            <input id="submit-button" class="input" type="submit" value="Submit">
+        </form>
     </body>
 </html>
