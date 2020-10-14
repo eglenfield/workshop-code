@@ -8,25 +8,26 @@
         <header>
             <h1>Registration</h1>
         </header>
-        <form class="form" id="registration-form">
+        <form class="form" name="registation-form" id="registration-form" onsubmit="validateForm()">
             <div class="input-wrapper">
                 <div id="email-input">
                     <label for="email">Email</label>
-                    <input class="input" type="text" id="email" name="email">
+                    <input id="email" class="input" type="text" name="email" aria-required="true" aria-invalid="true" required>
                 </div>
                 <div id="password-input">
                     <label for="password">Password</label>
-                    <input class="input" type="password" id="password" name="password">
-                    <ul class="password-hints">
-                        <li>8+ characters</li>
-                        <li>lowercase letter</li>
-                        <li>uppercase letter</li>
-                        <li>number</li>
-                        <li>special character</li>
+                    <input id="password" class="input" type="password" name="password" aria-required="true" aria-invalid="true" required onkeyup="validatePassword()">
+                    <ul class="password-hints" aria-label="password hints">
+                        <li><span aria-hidden="true" id="password-character">&#x2717;</span>8+ characters</li>
+                        <li><span aria-hidden="true" id="password-lowercase">&#x2717;</span>lowercase letter</li>
+                        <li><span aria-hidden="true" id="password-uppercase">&#x2717;</span>uppercase letter</li>
+                        <li><span aria-hidden="true" id="password-number">&#x2717;</span>number</li>
+                        <li><span aria-hidden="true" id="password-special">&#x2717;</span>special character</li>
                     </ul>
                 </div>
             </div>
-            <input id="submit-button" class="input" type="submit" value="Submit">
+            <input id="submit-button" class="input" type="submit" value="Submit" disabled>
         </form>
     </body>
+    <script src="index.js"></script>
 </html>

@@ -50,3 +50,7 @@ h1 {
   justify-self: flex-start;
   align-self: flex-end;
 }
+
+.password-hints {
+  list-style: none;
+}

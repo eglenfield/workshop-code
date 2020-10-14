@@ -9,8 +9,30 @@
   <body>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
-    <div id="test-div"></div>
+    <div id="test-div">
+      <form class="form" name="registation-form" id="registration-form" onsubmit="validateForm()">
+        <div class="input-wrapper">
+            <div id="email-input">
+                <label for="email">Email</label>
+                <input id="email" class="input" type="text" name="email" aria-required="true" aria-invalid="true" required>
+            </div>
+            <div id="password-input">
+                <label for="password">Password</label>
+                <input id="password" class="input" type="password" name="password" aria-required="true" aria-invalid="true" required onkeyup="validatePassword()">
+                <ul class="password-hints" aria-label="password hints">
+                    <li><span aria-hidden="true" id="password-character">&#x2717;</span>8+ characters</li>
+                    <li><span aria-hidden="true" id="password-lowercase">&#x2717;</span>lowercase letter</li>
+                    <li><span aria-hidden="true" id="password-uppercase">&#x2717;</span>uppercase letter</li>
+                    <li><span aria-hidden="true" id="password-number">&#x2717;</span>number</li>
+                    <li><span aria-hidden="true" id="password-special">&#x2717;</span>special character</li>
+                </ul>
+            </div>
+        </div>
+        <input id="submit-button" class="input" type="submit" value="Submit" disabled>
+    </form>
+    </div>
     <script src="https://code.jquery.com/qunit/qunit-2.11.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../index.js"></script>
     <script src="tests.js"></script>
 </body>
