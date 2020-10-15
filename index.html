@@ -8,7 +8,7 @@
         <header>
             <h1>Registration</h1>
         </header>
-        <form class="form" name="registation-form" id="registration-form" onsubmit="validateForm()">
+        <form class="form" name="registation-form" id="registration-form" onsubmit="event.preventDefault(); validateForm()" novalidate>
             <div class="input-wrapper">
                 <div id="email-input">
                     <label for="email">Email</label>

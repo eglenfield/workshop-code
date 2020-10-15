@@ -2,14 +2,17 @@ const CROSS_ICON = '\u2717';
 const TICK_ICON = '\u2713';
 
 function validateForm() {
-  const email = document.forms['registation-form']['email'].value;
-  const password = document.forms['registation-form']['password'].value;
+  const email = document.forms['registation-form']['email'];
 
-  const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailValid = checkEmailValidity(email);
 
-  if (email != '' && password != '' && regex.test(email) == true) {
-    window.alert('You submitted a valid form!');
+  if (!emailValid) {
+    window.alert(email.validationMessage);
+    email.focus();
+    return false;
   }
+
+  return true;
 }
 
 function validatePassword() {
@@ -71,3 +74,19 @@ hasNumber = str => /[0-9]/.test(str);
 
 //Assumption is that any character which is not a digit or a standard letter is a special character
 hasSpecialChar = str => /[^A-Za-z0-9]/.test(str);
+
+checkEmailValidity = email => {
+  const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (email.value == '') {
+    email.setCustomValidity('You must enter an email address');
+    email.validity.customError;
+    return false;
+  } else if (regex.test(email.value) == false) {
+    email.setCustomValidity('Email must be in the correct format');
+    email.validity.customError;
+    return false;
+  }
+
+  return true;
+}

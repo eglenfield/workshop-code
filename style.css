@@ -54,3 +54,7 @@ h1 {
 .password-hints {
   list-style: none;
 }
+
+li {
+  margin-top: 3px;
+}
