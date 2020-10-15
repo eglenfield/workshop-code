@@ -83,7 +83,7 @@ checkEmailValidity = email => {
     email.validity.customError;
     return false;
   } else if (regex.test(email.value) == false) {
-    email.setCustomValidity('Email must be in the correct format');
+    email.setCustomValidity('Email must be a valid email address');
     email.validity.customError;
     return false;
   }
