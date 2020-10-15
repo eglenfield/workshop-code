@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <title>Project A</title>
     </head>
@@ -8,16 +9,17 @@
         <header>
             <h1>Registration</h1>
         </header>
-        <form class="form" name="registation-form" id="registration-form" onsubmit="event.preventDefault(); validateForm()" novalidate>
+        <div class="form-wrapper">
+            <form class="form" name="registation-form" id="registration-form" onsubmit="event.preventDefault(); validateForm()" novalidate>
             <div class="input-wrapper">
-                <div id="email-input">
+                <div class="input-group">
                     <label for="email">Email</label>
-                    <input id="email" class="input" type="text" name="email" aria-required="true" aria-invalid="true" required>
+                    <input class="input" type="text" name="email" aria-required="true" aria-invalid="true" required>
                 </div>
-                <div id="password-input">
+                <div class="input-group">
                     <label for="password">Password</label>
-                    <input id="password" class="input" type="password" name="password" aria-required="true" aria-invalid="true" required onkeyup="validatePassword()">
-                    <ul class="password-hints" aria-label="password hints">
+                    <input class="input" type="password" name="password" aria-required="true" aria-invalid="true" required onkeyup="validatePassword()">
+                    <ul aria-label="password hints">
                         <li><span aria-hidden="true" id="password-character">&#x2717;</span>8+ characters</li>
                         <li><span aria-hidden="true" id="password-lowercase">&#x2717;</span>lowercase letter</li>
                         <li><span aria-hidden="true" id="password-uppercase">&#x2717;</span>uppercase letter</li>
@@ -26,8 +28,11 @@
                     </ul>
                 </div>
             </div>
-            <input id="submit-button" class="input" type="submit" value="Submit" disabled>
+            <div class="input-group submit">
+                <input class="input" id="submit-button" type="submit" value="Submit" disabled>
+            </div>
         </form>
+        </div>
     </body>
     <script src="index.js"></script>
 </html>
